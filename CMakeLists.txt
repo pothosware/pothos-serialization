@@ -4,6 +4,9 @@
 cmake_minimum_required(VERSION 2.8.9)
 project(PothosSerialization CXX)
 
+set(POTHOS_SERIALIZATION_VERSION "2.0.0")
+set(POTHOS_SERIALIZATION_SOVERSION "1")
+
 ########################################################################
 ## Feature registration
 ########################################################################
@@ -40,7 +43,8 @@ foreach (source ${serialization_sources})
 endforeach (source)
 
 add_library(PothosSerialization SHARED ${serialization_sources})
-set_target_properties(PothosSerialization PROPERTIES VERSION 0)
+set_target_properties(PothosSerialization PROPERTIES SOVERSION ${POTHOS_SERIALIZATION_SOVERSION})
+set_target_properties(PothosSerialization PROPERTIES VERSION ${POTHOS_SERIALIZATION_VERSION})
 
 install(TARGETS PothosSerialization
     LIBRARY DESTINATION lib${LIB_SUFFIX} COMPONENT pothos_runtime # .so file
@@ -49,3 +53,19 @@ install(TARGETS PothosSerialization
 )
 
 install(DIRECTORY include/Pothos DESTINATION include)
+
+########################################################################
+# Install cmake project files
+########################################################################
+configure_file(
+    ${PROJECT_SOURCE_DIR}/cmake/PothosSerializationConfigVersion.in.cmake
+    ${PROJECT_BINARY_DIR}/PothosSerializationConfigVersion.cmake
+@ONLY)
+set(cmake_files
+    ${PROJECT_SOURCE_DIR}/cmake/PothosSerializationConfig.cmake
+    ${PROJECT_BINARY_DIR}/PothosSerializationConfigVersion.cmake)
+if (UNIX)
+    install(FILES ${cmake_files} DESTINATION share/cmake/${PROJECT_NAME})
+elseif (WIN32)
+    install(FILES ${cmake_files} DESTINATION cmake)
+endif ()
