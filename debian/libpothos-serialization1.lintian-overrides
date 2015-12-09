@@ -1,0 +1,6 @@
+#its a camel-case naming convention
+libpothos-serialization1: package-name-doesnt-match-sonames libPothosSerialization1
+
+#intentionally packaging these files
+libpothos-serialization1: wrong-name-for-upstream-changelog usr/share/doc/libpothos-serialization1/Changelog.txt
+libpothos-serialization1: extra-license-file usr/share/doc/libpothos-serialization1/LICENSE_1_0.txt
