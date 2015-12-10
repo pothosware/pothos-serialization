@@ -1,6 +1,6 @@
 This this the changelog file for the Pothos Serialization library.
 
-Release 0.2.0 (pending)
+Release 0.2.0 (2015-12-09)
 ==========================
 
 - Imported potable binary archive support from EOS

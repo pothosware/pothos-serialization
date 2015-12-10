@@ -4,7 +4,7 @@
 cmake_minimum_required(VERSION 2.8.9)
 project(PothosSerialization CXX)
 
-set(POTHOS_SERIALIZATION_VERSION "2.0.0")
+set(POTHOS_SERIALIZATION_VERSION "0.2.0")
 set(POTHOS_SERIALIZATION_SOVERSION "1")
 
 ########################################################################

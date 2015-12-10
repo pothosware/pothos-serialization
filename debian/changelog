@@ -1,5 +1,5 @@
-pothos-serialization (2.0.0) unstable; urgency=low
+pothos-serialization (0.2.0) unstable; urgency=low
 
-  * pending
+  * Release 0.2.0 (2015-12-09)
 
  -- Josh Blum <josh@pothosware.com>  Wed, 09 Dec 2015 10:46:01 -0800
